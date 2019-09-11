@@ -1,27 +1,26 @@
-## Workflow
+## Image Viewer Component
 
-> A project template based on TypeScript, React, immer, emotion, rex, ruled-router...
+> for zooming/rotating images.
+
+Not yet:
+
+- animations
+- dragging
 
 ### Usage
 
-Dev:
+```tsx
+import { ImageViewer } from "@jimengio/meson-display";
 
-```bash
-yarn dll
-yarn dev
-```
-
-Compile library:
-
-```bash
-yarn compile
-```
-
-Release:
-
-```bash
-yarn release
-# yarn serve
+<ImageViewer
+  visible={visible}
+  imageUrl={"http://cache.house.sina.com.cn/citylifehouse/citylife/de/26/20090508_7339__.jpg"}
+  onClose={() => {
+    setVisible(false);
+  }}
+  hasLeftOne={false}
+  hasRightOne={false}
+/>;
 ```
 
 ### Workflow
