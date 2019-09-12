@@ -1,14 +1,14 @@
 import ReactDOM, { unstable_renderSubtreeIntoContainer } from "react-dom";
 import React from "react";
 
-import "main.css";
-
 import { parseRoutePath, IRouteParseResult } from "@jimengio/ruled-router";
 
 import { routerRules } from "./models/router-rules";
 
 import Container from "./pages/container";
-import { demo } from "../src/index";
+
+import "font-awesome/css/font-awesome.min.css";
+import "./main.css";
 
 const renderApp = () => {
   let routerTree = parseRoutePath(window.location.hash.slice(1), routerRules);
@@ -22,12 +22,10 @@ window.addEventListener("hashchange", () => {
   renderApp();
 });
 
-demo();
-
 declare var module: any;
 
 if (module.hot) {
-  module.hot.accept([], () => {
+  module.hot.accept(["./pages/container"], () => {
     renderApp();
   });
 }

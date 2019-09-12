@@ -1,11 +1,14 @@
 import React from "react";
 import { parseRoutePath, IRouteParseResult } from "@jimengio/ruled-router";
-import { css } from "emotion";
+import { css, cx } from "emotion";
+import { row, fullHeight, fullscreen } from "@jimengio/shared-utils";
 
 import Home from "./home";
 import Content from "./content";
-import { HashRedirect } from "@jimengio/ruled-router/lib/dom";
+import { HashRedirect, findRouteTarget } from "@jimengio/ruled-router/lib/dom";
 import { genRouter } from "controller/generated-router";
+import DemoImageViewer from "./demo-image-viewer";
+import { DocSidebar, ISidebarEntry } from "@jimengio/doc-frame";
 
 const renderChildPage = (routerTree: IRouteParseResult) => {
   if (routerTree != null) {
@@ -14,6 +17,8 @@ const renderChildPage = (routerTree: IRouteParseResult) => {
         return <Home />;
       case genRouter.content.name:
         return <Content />;
+      case genRouter.imageViewer.name:
+        return <DemoImageViewer />;
       default:
         return (
           <HashRedirect to={genRouter.home.name} delay={2}>
@@ -25,10 +30,31 @@ const renderChildPage = (routerTree: IRouteParseResult) => {
   return <div>NOTHING</div>;
 };
 
-export default (props) => {
+let items: ISidebarEntry[] = [
+  {
+    title: "Home",
+    path: genRouter.home.name,
+  },
+  {
+    title: "image viewer",
+    path: genRouter.imageViewer.name,
+  },
+];
+
+let onSwitch = (path: string) => {
+  let target = findRouteTarget(genRouter, path);
+  if (target) {
+    target.go();
+  } else {
+    console.error("Unknown path", path);
+  }
+};
+
+export default (props: { router: IRouteParseResult }) => {
   return (
-    <div className={styleContainer}>
-      <div className={styleTitle}>Container</div>
+    <div className={cx(row, fullscreen, styleContainer)}>
+      <DocSidebar currentPath={props.router.name} items={items} onSwitch={(item) => onSwitch(item.path)} />
+      <div style={{ width: 20 }} />
       {renderChildPage(props.router)}
     </div>
   );
@@ -36,8 +62,4 @@ export default (props) => {
 
 const styleContainer = css`
   font-family: "Helvetica";
-`;
-
-const styleTitle = css`
-  margin-bottom: 16px;
 `;
