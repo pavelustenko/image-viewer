@@ -25,6 +25,12 @@ export let genRouter = {
     path: () => `/content`,
     go: () => switchPath(`/content`),
   },
+  imageViewer: {
+    name: "image-viewer",
+    raw: "image-viewer",
+    path: () => `/image-viewer`,
+    go: () => switchPath(`/image-viewer`),
+  },
   else: {
     name: "else",
     raw: "else",
