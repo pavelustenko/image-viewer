@@ -35,6 +35,8 @@ interface IProps {
 
   localeEmpty?: string;
   localeFailed?: string;
+
+  closeOnBackdrop?: boolean;
 }
 
 interface IState {
@@ -118,9 +120,10 @@ export default class ImageViewer extends React.Component<IProps, IState> {
           ) : this.state.errorText != null ? (
             this.renderError()
           ) : (
-            <div className={styleImageContainer}>
+            <div className={styleImageContainer} onClick={this.props.onClose}>
               <div style={{ width: r90 ? height : width, height: r90 ? width : height, overflow: "hidden" }}>
                 <img
+                  onClick={(e) => e.stopPropagation()}
                   src={this.getImageUrl()}
                   className={styleImage}
                   style={{
@@ -173,7 +176,7 @@ export default class ImageViewer extends React.Component<IProps, IState> {
           </div>
         </div>
 
-        <JimoIcon name={EJimoIcon.slimCross} className={styleClose} onClick={this.props.onClose} />
+        {this.props.closeOnBackdrop ? null : <JimoIcon name={EJimoIcon.slimCross} className={styleClose} onClick={this.props.onClose} />}
       </div>
     );
   }
