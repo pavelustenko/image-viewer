@@ -101,10 +101,15 @@
   resolved "https://registry.npmjs.org/@jimengio/fa-icons/-/fa-icons-0.2.0.tgz#50cfe599ee4c9ab70e780be4ddc6dc78d8bd33a8"
   integrity sha512-QpSuslOYU+cHgWNlwtQCRxHQVsm4cyzxbjeItf9NH0tW85RveNs1mJvkCD9CndehOXn04eoqxKA+Mwhju0UDaQ==
 
-"@jimengio/jimo-icons@^0.1.26":
-  version "0.1.26"
-  resolved "https://registry.npmjs.org/@jimengio/jimo-icons/-/jimo-icons-0.1.26.tgz#71e7efc72734ede7c35e09cf034fa3df731518d0"
-  integrity sha512-7BZtgyqb+I9iOBUfPSsBRQpZ0xiuqYXfDNviioFS5vtvFuS4+aQStww/0Popop+//FV9akTCMTEl9VU9HpJCmw==
+"@jimengio/flex-styles@^0.1.5":
+  version "0.1.5"
+  resolved "https://registry.npmjs.org/@jimengio/flex-styles/-/flex-styles-0.1.5.tgz#610452f1a7e445fdec33e2d8180d49122671238d"
+  integrity sha512-97X8vD2FPSBf2bqOrWIz60OgBxpdcdsxbGB2TU3xulv0cP8Vezd6s/mYvPIssX3hpqMXl1983SKlrJwgi294AQ==
+
+"@jimengio/jimo-icons@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.npmjs.org/@jimengio/jimo-icons/-/jimo-icons-0.2.1.tgz#cb38daf93d5a5a713d9f71a77134a906a260cbe2"
+  integrity sha512-v4wMkKvBa91opUGhM1TvSrz1FvcPwS+srhaE+tgZHiB4D+kOsecC9SDCfOIt1C2CYlclRQcbPBDBfGb7rV1WIw==
 
 "@jimengio/router-code-generator@^0.1.2":
   version "0.1.5"
@@ -123,10 +128,10 @@
   resolved "https://registry.npmjs.org/@jimengio/safe-property/-/safe-property-0.0.2.tgz#62d824660a56a6eb29628c1c795b256b9639743b"
   integrity sha512-3MNHoTL2lZGtdsoleHIfKpx2+IE9uKHy9ac3jh/7Jn9eCvw7M1SG73o2n71kJTVX2CPqrdLRTg5tB6tLJrCp1A==
 
-"@jimengio/shared-utils@^0.1.5-a1":
-  version "0.1.5-a1"
-  resolved "https://registry.npmjs.org/@jimengio/shared-utils/-/shared-utils-0.1.5-a1.tgz#15e150afed4528411c3d1437aa3f9349ebd77243"
-  integrity sha512-p79k3U39osZwiEMNO3dDO2owth1tEcPUm4u5gaA1/91zvXMLOKGWMxeV07KvCrpwgl81bfrqGmhgjYLba0+/ew==
+"@jimengio/shared-utils@^0.1.5":
+  version "0.1.5"
+  resolved "https://registry.npmjs.org/@jimengio/shared-utils/-/shared-utils-0.1.5.tgz#c6435e34674ef389abdb23a97f713ea14fc3b8e1"
+  integrity sha512-0KWBrKlDtt+/xfiGQ/PylyLBa1FvwUPhuPeVqYtcw290h5lH6N64pnF9e3tKYk0VVQHXeauBfiQJBE0miBltmQ==
   dependencies:
     fuzzysearch "^1.0.3"
 

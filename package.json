@@ -35,11 +35,11 @@
     "@jimengio/ci-progress-webpack-plugin": "^0.1.0",
     "@jimengio/doc-frame": "^0.1.1",
     "@jimengio/fa-icons": "^0.2.0",
-    "@jimengio/jimo-icons": "^0.1.26",
+    "@jimengio/jimo-icons": "^0.2.1",
     "@jimengio/router-code-generator": "^0.1.2",
     "@jimengio/ruled-router": "^0.2.10",
     "@jimengio/safe-property": "^0.0.2",
-    "@jimengio/shared-utils": "^0.1.5-a1",
+    "@jimengio/shared-utils": "^0.1.5",
     "@types/lodash": "^4.14.138",
     "@types/node": "^12.7.3",
     "@types/prettier": "^1.18.2",
@@ -93,6 +93,7 @@
     "react-dom": "^16.8.6"
   },
   "dependencies": {
+    "@jimengio/flex-styles": "^0.1.5",
     "react-transition-group": "^4.2.2"
   }
 }

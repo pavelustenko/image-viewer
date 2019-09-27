@@ -31,6 +31,12 @@ export let genRouter = {
     path: () => `/image-viewer`,
     go: () => switchPath(`/image-viewer`),
   },
+  closeOnBackdrop: {
+    name: "close-on-backdrop",
+    raw: "close-on-backdrop",
+    path: () => `/close-on-backdrop`,
+    go: () => switchPath(`/close-on-backdrop`),
+  },
   else: {
     name: "else",
     raw: "else",
