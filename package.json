@@ -48,6 +48,7 @@
     "@types/react-dom": "^16.9.0",
     "@types/react-transition-group": "^4.2.2",
     "@types/url-parse": "^1.4.3",
+    "@jimengio/flex-styles": "^0.1.5",
     "cache-loader": "^4.1.0",
     "css-loader": "^3.2.0",
     "dayjs": "^1.8.16",
@@ -87,13 +88,13 @@
     "@jimengio/jimo-icons": "^0.1.19",
     "@jimengio/safe-property": "^0.0.2",
     "@jimengio/fa-icons": "^0.1.11",
+    "@jimengio/flex-styles": "^0.1.5",
     "emotion": "^10.0.9",
     "immer": "^3.1.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
   "dependencies": {
-    "@jimengio/flex-styles": "^0.1.5",
     "react-transition-group": "^4.2.2"
   }
 }
