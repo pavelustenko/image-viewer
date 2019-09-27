@@ -1,4 +1,4 @@
-import React, { SFC } from "react";
+import React, { SFC, MouseEvent } from "react";
 import { css, cx } from "emotion";
 import { immerHelpers, ImmerStateFunc, MergeStateFunc } from "@jimengio/shared-utils";
 import { fullscreen, column, flex, center, rowCenter } from "@jimengio/shared-utils";
@@ -35,6 +35,8 @@ interface IProps {
 
   localeEmpty?: string;
   localeFailed?: string;
+
+  closeOnBackdrop?: boolean;
 }
 
 interface IState {
@@ -111,7 +113,14 @@ export default class ImageViewer extends React.Component<IProps, IState> {
     let { width, height } = this.state;
 
     return (
-      <div className={cx(fullscreen, column, styleContainer)}>
+      <div
+        className={cx(fullscreen, column, styleContainer)}
+        onClick={() => {
+          if (this.props.closeOnBackdrop) {
+            this.props.onClose();
+          }
+        }}
+      >
         <div className={cx(flex, stylePreviewArea)}>
           {this.state.isLoading ? (
             this.renderLoading()
@@ -119,7 +128,7 @@ export default class ImageViewer extends React.Component<IProps, IState> {
             this.renderError()
           ) : (
             <div className={styleImageContainer}>
-              <div style={{ width: r90 ? height : width, height: r90 ? width : height, overflow: "hidden" }}>
+              <div style={{ width: r90 ? height : width, height: r90 ? width : height, overflow: "hidden" }} onClick={this.stopPropagation}>
                 <img
                   src={this.getImageUrl()}
                   className={styleImage}
@@ -140,7 +149,7 @@ export default class ImageViewer extends React.Component<IProps, IState> {
         {/* TODO space */}
 
         <div className={cx(center, styleFooterArea)}>
-          <div className={cx(rowCenter, styleToolbar)}>
+          <div className={cx(rowCenter, styleToolbar)} onClick={this.stopPropagation}>
             <JimoIcon
               className={styleIcon}
               name={EJimoIcon.zoomIn}
@@ -173,7 +182,7 @@ export default class ImageViewer extends React.Component<IProps, IState> {
           </div>
         </div>
 
-        <JimoIcon name={EJimoIcon.slimCross} className={styleClose} onClick={this.props.onClose} />
+        {this.props.closeOnBackdrop ? null : <JimoIcon name={EJimoIcon.slimCross} className={styleClose} onClick={this.props.onClose} />}
       </div>
     );
   }
@@ -188,7 +197,13 @@ export default class ImageViewer extends React.Component<IProps, IState> {
 
   renderLeftIcon() {
     return (
-      <div className={styleArrowIcon} onClick={this.props.onViewLeft}>
+      <div
+        className={styleArrowIcon}
+        onClick={(event) => {
+          event.stopPropagation();
+          this.props.onViewLeft;
+        }}
+      >
         <FaIcon name={EFaIcon.ArrowCircleLeft} />
       </div>
     );
@@ -196,7 +211,13 @@ export default class ImageViewer extends React.Component<IProps, IState> {
 
   renderRightIcon() {
     return (
-      <div className={cx(styleArrowIcon, styleArrowRight)} onClick={this.props.onViewRight}>
+      <div
+        className={cx(styleArrowIcon, styleArrowRight)}
+        onClick={(event) => {
+          event.stopPropagation();
+          this.props.onViewRight();
+        }}
+      >
         <FaIcon name={EFaIcon.ArrowCircleRight} />
       </div>
     );
@@ -336,6 +357,10 @@ export default class ImageViewer extends React.Component<IProps, IState> {
     } else {
       return x + 1;
     }
+  }
+
+  stopPropagation(event: MouseEvent) {
+    event.stopPropagation();
   }
 }
 

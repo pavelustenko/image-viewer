@@ -24,6 +24,7 @@ import { ImageViewer } from "@jimengio/image-viewer";
   }}
   hasLeftOne={false}
   hasRightOne={false}
+  closeOnBackdrop={false}
 />;
 ```
 

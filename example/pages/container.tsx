@@ -9,6 +9,7 @@ import { HashRedirect, findRouteTarget } from "@jimengio/ruled-router/lib/dom";
 import { genRouter } from "controller/generated-router";
 import DemoImageViewer from "./demo-image-viewer";
 import { DocSidebar, ISidebarEntry } from "@jimengio/doc-frame";
+import DemoCloseBackdrop from "./demo-close-backdrop";
 
 const renderChildPage = (routerTree: IRouteParseResult) => {
   if (routerTree != null) {
@@ -19,6 +20,8 @@ const renderChildPage = (routerTree: IRouteParseResult) => {
         return <Content />;
       case genRouter.imageViewer.name:
         return <DemoImageViewer />;
+      case genRouter.closeOnBackdrop.name:
+        return <DemoCloseBackdrop />;
       default:
         return (
           <HashRedirect to={genRouter.home.name} delay={2}>
@@ -38,6 +41,10 @@ let items: ISidebarEntry[] = [
   {
     title: "image viewer",
     path: genRouter.imageViewer.name,
+  },
+  {
+    title: "Close on backdrop",
+    path: genRouter.closeOnBackdrop.name,
   },
 ];
 

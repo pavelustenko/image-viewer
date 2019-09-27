@@ -6,6 +6,9 @@ export const routerRules: IRouteRule[] = [
   {
     path: "image-viewer",
   },
+  {
+    path: "close-on-backdrop",
+  },
   { path: "else" },
   { path: "", name: "home" },
 ];
