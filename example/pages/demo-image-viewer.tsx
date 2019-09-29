@@ -2,19 +2,22 @@ import React, { useState } from "react";
 import { css, cx } from "emotion";
 
 import ImageViewer from "../../src/image-viewer";
+import { DocDemo } from "@jimengio/doc-frame";
 
 export default function DemoImageViewer() {
   let [visible, setVisible] = useState(false);
 
   return (
     <div className={styleContainer}>
-      <button
-        onClick={() => {
-          setVisible(!visible);
-        }}
-      >
-        Toggle
-      </button>
+      <DocDemo title="Load image" link="https://github.com/jimengio/image-viewer/blob/master/example/pages/demo-image-viewer.tsx">
+        <button
+          onClick={() => {
+            setVisible(!visible);
+          }}
+        >
+          Show image
+        </button>
+      </DocDemo>
 
       <ImageViewer
         visible={visible}

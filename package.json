@@ -33,7 +33,7 @@
   "license": "MIT",
   "devDependencies": {
     "@jimengio/ci-progress-webpack-plugin": "^0.1.0",
-    "@jimengio/doc-frame": "^0.1.1",
+    "@jimengio/doc-frame": "^0.1.2-a4",
     "@jimengio/fa-icons": "^0.2.0",
     "@jimengio/jimo-icons": "^0.2.1",
     "@jimengio/router-code-generator": "^0.1.2",

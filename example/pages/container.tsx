@@ -1,10 +1,9 @@
 import React from "react";
 import { parseRoutePath, IRouteParseResult } from "@jimengio/ruled-router";
 import { css, cx } from "emotion";
-import { row, fullHeight, fullscreen } from "@jimengio/shared-utils";
+import { row, fullHeight, fullscreen, expand } from "@jimengio/shared-utils";
 
 import Home from "./home";
-import Content from "./content";
 import { HashRedirect, findRouteTarget } from "@jimengio/ruled-router/lib/dom";
 import { genRouter } from "controller/generated-router";
 import DemoImageViewer from "./demo-image-viewer";
@@ -16,8 +15,6 @@ const renderChildPage = (routerTree: IRouteParseResult) => {
     switch (routerTree.name) {
       case genRouter.home.name:
         return <Home />;
-      case genRouter.content.name:
-        return <Content />;
       case genRouter.imageViewer.name:
         return <DemoImageViewer />;
       case genRouter.closeOnBackdrop.name:
@@ -60,13 +57,17 @@ let onSwitch = (path: string) => {
 export default (props: { router: IRouteParseResult }) => {
   return (
     <div className={cx(row, fullscreen, styleContainer)}>
-      <DocSidebar currentPath={props.router.name} items={items} onSwitch={(item) => onSwitch(item.path)} />
+      <DocSidebar title="Image Viewer" currentPath={props.router.name} items={items} onSwitch={(item) => onSwitch(item.path)} />
       <div style={{ width: 20 }} />
-      {renderChildPage(props.router)}
+      <div className={cx(expand, stylePage)}>{renderChildPage(props.router)}</div>
     </div>
   );
 };
 
 const styleContainer = css`
   font-family: "Helvetica";
+`;
+
+let stylePage = css`
+  padding: 40px;
 `;
