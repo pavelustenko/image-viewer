@@ -9,8 +9,6 @@ import { CSSTransition, TransitionGroup } from "react-transition-group";
 import FaIcon from "@jimengio/fa-icons";
 import { EFaIcon } from "@jimengio/fa-icons";
 
-import { safeGet } from "@jimengio/safe-property";
-
 /** no real md5 at current */
 let md5 = (x: string) => `${x}`;
 
@@ -376,8 +374,8 @@ export let ImageViewerList: SFC<{
 
   return (
     <ImageViewer
-      imageUrl={safeGet(image, "url")}
-      imageDownloadUrl={safeGet(image, "downloadUrl")}
+      imageUrl={image?.url}
+      imageDownloadUrl={image?.downloadUrl}
       visible={props.visible}
       onClose={() => {
         props.onChange(null);
