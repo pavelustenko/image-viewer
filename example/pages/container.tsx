@@ -13,28 +13,18 @@ import DemoCloseBackdrop from "./demo-close-backdrop";
 const renderChildPage = (routerTree: IRouteParseResult) => {
   if (routerTree != null) {
     switch (routerTree.name) {
-      case genRouter.home.name:
-        return <Home />;
       case genRouter.imageViewer.name:
         return <DemoImageViewer />;
       case genRouter.closeOnBackdrop.name:
         return <DemoCloseBackdrop />;
       default:
-        return (
-          <HashRedirect to={genRouter.home.name} delay={2}>
-            2s to redirect
-          </HashRedirect>
-        );
+        return <HashRedirect to={genRouter.imageViewer.path()} noDelay />;
     }
   }
   return <div>NOTHING</div>;
 };
 
 let items: ISidebarEntry[] = [
-  {
-    title: "Home",
-    path: genRouter.home.name,
-  },
   {
     title: "image viewer",
     path: genRouter.imageViewer.name,
