@@ -1,7 +1,7 @@
 import React, { SFC, MouseEvent } from "react";
 import { css, cx } from "emotion";
 import { immerHelpers, ImmerStateFunc, MergeStateFunc } from "@jimengio/shared-utils";
-import { fullscreen, column, flex, center, rowCenter } from "@jimengio/shared-utils";
+import { fullscreen, column, flex, center, rowCenter } from "@jimengio/flex-styles";
 import JimoIcon, { EJimoIcon } from "@jimengio/jimo-icons";
 import urlParse from "url-parse";
 
