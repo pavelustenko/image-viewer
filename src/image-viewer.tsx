@@ -35,6 +35,9 @@ interface IProps {
   localeFailed?: string;
 
   closeOnBackdrop?: boolean;
+
+  /** handle download outside */
+  onDownloadRequest?: (previewUrl: string) => void;
 }
 
 interface IState {
@@ -174,7 +177,11 @@ export default class ImageViewer extends React.Component<IProps, IState> {
               className={styleIcon}
               name={EJimoIcon.download}
               onClick={(event) => {
-                downloadFile(this.props.imageDownloadUrl || this.getImageUrl(), this.props.localeEmpty || "Empty");
+                if (this.props.onDownloadRequest != null) {
+                  this.props.onDownloadRequest(this.props.imageDownloadUrl || this.getImageUrl());
+                } else {
+                  downloadFile(this.props.imageDownloadUrl || this.getImageUrl(), this.props.localeEmpty || "Empty");
+                }
               }}
             />
           </div>
