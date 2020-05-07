@@ -38,6 +38,11 @@ interface IProps {
 
   /** handle download outside */
   onDownloadRequest?: (previewUrl: string) => void;
+
+  /** defaults to 40 */
+  imageMinWidth?: number;
+  /** defaults to 4000 */
+  imageMaxWidth?: number;
 }
 
 interface IState {
@@ -314,6 +319,16 @@ export default class ImageViewer extends React.Component<IProps, IState> {
   }
 
   scaleImageResize(ratio: number) {
+    // limit width to amoung 40~4000 roughly
+    if (ratio > 1) {
+      if (this.state.width > (this.props.imageMinWidth ?? 4000)) {
+        return;
+      }
+    } else if (ratio < 1) {
+      if (this.state.width < (this.props.imageMaxWidth ?? 40)) {
+        return;
+      }
+    }
     this.mergeState({
       width: this.state.width * ratio,
       height: this.state.height * ratio,
