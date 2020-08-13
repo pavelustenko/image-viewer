@@ -11,7 +11,7 @@ export interface MergeStateFunc<S> {
 }
 
 export let immerHelpers = {
-  setState: (...f: any[]) => void {},
+  setState: (...f: any[]) => {},
 
   async immerState<S>(f: (s: S) => void): Promise<any> {
     return new Promise((resolve) => {

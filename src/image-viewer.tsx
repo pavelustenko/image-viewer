@@ -285,8 +285,8 @@ export default class ImageViewer extends React.Component<IProps, IState> {
     }
 
     let ret = {
-      width: null,
-      height: null,
+      width: null as number,
+      height: null as number,
     };
 
     if (originalWidth > fullWidth || originalHeight > fullHeight) {

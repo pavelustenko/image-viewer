@@ -37,7 +37,7 @@ export let genRouter = {
     path: () => `/else`,
     go: () => switchPath(`/else`),
   },
-  _: {
+  $: {
     name: "home",
     raw: "",
     path: () => `/`,
