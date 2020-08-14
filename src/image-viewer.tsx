@@ -64,7 +64,7 @@ export default class ImageViewer extends React.Component<IProps, IState> {
 
     this.state = {
       isLoading: true,
-      errorText: null,
+      errorText: undefined,
       originalWidth: 0,
       originalHeight: 0,
       width: 0,
@@ -285,8 +285,8 @@ export default class ImageViewer extends React.Component<IProps, IState> {
     }
 
     let ret = {
-      width: null as number,
-      height: null as number,
+      width: undefined as number,
+      height: undefined as number,
     };
 
     if (originalWidth > fullWidth || originalHeight > fullHeight) {
