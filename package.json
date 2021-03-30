@@ -14,7 +14,6 @@
     "compile": "tsc -d --project tsconfig-compile.json --outDir lib/",
     "upload": "rsync -avr --progress dist/ fe.jimu.io:~/repo/jimengio/image-viewer",
     "gen-router": "ts-node -P tsconfig-node.json -r tsconfig-paths/register example/gen-router.ts",
-    "postinstall": "rm -rfv node_modules/@types/*/node_modules/@types/react"
   },
   "repository": {
     "type": "git",
